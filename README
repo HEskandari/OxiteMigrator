@@ -1,0 +1,17 @@
+This is a command prompt tool that connects directly to Oxite Blog Engine [1] and exports 
+the existing data (Posts, Comments, Trackbacks, etc.) into BlogML [2] standard format which
+can later be used to port you existing blog into any blog engine supporting BlogML format
+(which mostly do). 
+
+This version only supports exporting a blog with one area, so if you have a blog with more
+than one area, you might need to adjust the code to fit your needs, but it is very easy to 
+do so.
+
+To run the application, setup you connection string in application configuration file and 
+run let the program export the data into the output file.
+
+This project is released under MIT license. Make sure you read the licensing agreement before
+using it.
+
+[1] http://oxite.codeplex.com/
+[2] http://en.wikipedia.org/wiki/BlogML

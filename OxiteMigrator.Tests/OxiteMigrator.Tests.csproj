@@ -2,20 +2,18 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2830ACE0-2A7A-4227-8511-8CAF0916789A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{C629C540-A991-4E67-9E45-EE055D5EDDE9}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OxiteMigrator</RootNamespace>
-    <AssemblyName>OxiteMigrator</AssemblyName>
+    <RootNamespace>OxiteMigrator.Tests</RootNamespace>
+    <AssemblyName>OxiteMigrator.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,8 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,41 +35,35 @@
       <HintPath>..\lib\BlogML\BlogML.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\lib\Log4net\log4net.dll</HintPath>
+      <HintPath>..\lib\Log4Net\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="xunit">
+      <HintPath>..\lib\xUnit\xunit.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.extensions">
+      <HintPath>..\lib\xUnit\xunit.extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\OxiteReader.cs" />
-    <Compile Include="DataAccess\OxiteRecord.cs" />
-    <Compile Include="DataAccess\RecordState.cs" />
-    <Compile Include="Migrator.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MigratorFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Workers\WorkersImpl\AnonymousCommentWorker.cs" />
-    <Compile Include="Workers\WorkersImpl\BlogMLExportWorker.cs" />
-    <Compile Include="Workers\WorkersImpl\BlogPostWorker.cs" />
-    <Compile Include="Workers\WorkersImpl\CommentWorker.cs" />
-    <Compile Include="Workers\IBlogWorker.cs" />
-    <Compile Include="Workers\IPostWorker.cs" />
-    <Compile Include="Workers\WorkersImpl\SiteInfoWorker.cs" />
-    <Compile Include="Workers\WorkersImpl\TagWorker.cs" />
-    <Compile Include="Workers\WorkersImpl\TrackbackWorker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OxiteMigrator\OxiteMigrator.csproj">
+      <Project>{2830ACE0-2A7A-4227-8511-8CAF0916789A}</Project>
+      <Name>OxiteMigrator</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

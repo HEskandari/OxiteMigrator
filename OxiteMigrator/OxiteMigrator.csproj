@@ -59,6 +59,7 @@
     <Compile Include="Workers\WorkersImpl\AnonymousCommentWorker.cs" />
     <Compile Include="Workers\WorkersImpl\BlogMLExportWorker.cs" />
     <Compile Include="Workers\WorkersImpl\BlogPostWorker.cs" />
+    <Compile Include="Workers\WorkersImpl\CategoryReferenceWorker.cs" />
     <Compile Include="Workers\WorkersImpl\CommentWorker.cs" />
     <Compile Include="Workers\IBlogWorker.cs" />
     <Compile Include="Workers\IPostWorker.cs" />

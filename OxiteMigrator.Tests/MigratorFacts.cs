@@ -37,7 +37,7 @@ namespace OxiteMigrator.Tests
         }
 
         [Fact]
-        public void Can_Import_Categories()
+        public void Exports_Post_Category_Relations()
         {
             var migrator = new Migrator();
             migrator.Migrate();
@@ -46,13 +46,11 @@ namespace OxiteMigrator.Tests
             var file = new FileStream(path, FileMode.Open);
             var blog = BlogMLSerializer.Deserialize(file);
 
-            foreach (BlogMLCategoryReference blogMLCategoryReference in blog.Categories)
-            {
-                var reference = blogMLCategoryReference;
-                foreach (var blogMLCategory in blog.Categories.Where(category => category.ID == reference.Ref))
-                {
-                }
-            }
+            var post = blog.Posts[0];
+            var categories = post.Categories;
+
+            Assert.NotNull(categories);
+            Assert.NotEmpty(categories);
         }
     }
 }

@@ -17,7 +17,8 @@ namespace OxiteMigrator.Workers
             {
                 new CommentWorker(),
                 new AnonymousCommentWorker(),
-                new TrackbackWorker()
+                new TrackbackWorker(),
+                new CategoryReferenceWorker()
             };
         }
 
